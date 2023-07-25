@@ -13,7 +13,8 @@ def index():
     return req
     '''
     _file = open('server.json')
-    data = json.load(_file)
+    data = json.load(_file)['devices'] if
+
 
     _file.close()
 
