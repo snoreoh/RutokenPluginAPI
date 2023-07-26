@@ -6,17 +6,12 @@ app = Flask(__name__)
 @app.route('/', methods = ['POST'])
 @cross_origin(headers=['Content-Type'])
 def index():
-    '''
+    
     req = request.get_json()
     print(req.get('deviceID'))
     print()
     return req
-    '''
-    _file = open('server.json')
-    data = json.load(_file)['devices'] if
-
-
-    _file.close()
+    
 
 
 @app.route('/devices/<int:dev_id>/certificate', methods = ['POST'])

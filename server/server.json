@@ -5,25 +5,6 @@
             "id": "1",
             "certID": "1",
             "pin": "1234"
-        },
-
-        {
-            "id": "2",
-            "certID": "2",
-            "pin": "2345"
-        },
-
-        {
-            "id": "3",
-            "certID": "2",
-            "pin": "3456"
-        },
-
-        {
-            "id": "4",
-            "certID": "4",
-            "pin": "4567"
-            
         }
     ],
     "certificates": [
@@ -31,21 +12,6 @@
         {
             "certID": "1",
             "obtainDate": "11.11.11"
-        },
-
-        {
-            "certID": "2",
-            "obtainDate": "12.12.12"
-        },
-
-        {
-            "certID": "3",
-            "obtainDate": "01.01.13"
-        },
-
-        {
-            "certID": "4",
-            "obtainDate": "02.02.14"
         }
     ]
 }
