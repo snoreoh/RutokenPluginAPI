@@ -1,48 +1,47 @@
-from flask import Flask, request
+from flask import Flask, request, make_response
 from flask_cors import cross_origin
 import json
+import uuid
+
 app = Flask(__name__)
 
-@app.route('/', methods = ['POST'])
+@app.route('/', methods = ['GET', 'POST'])
 @cross_origin(headers=['Content-Type'])
 def index():
-    
-    req = request.get_json()
-    print(req.get('deviceID'))
-    print()
-    return req
-    
+    return open('../index.html')
 
-
-@app.route('/devices/<int:dev_id>/certificate', methods = ['POST'])
+@app.route('/devices/CMS\'s', methods = ['POST'])
 @cross_origin(headers=['Content-Type'])
 def auth():
     req = request.get_json()
-    return req
+    return json.load(open('CMS.json'))
 
-@app.route('/devices/<int:dev_id>/', methods = ['POST'])
+@app.route('/devices/PINs', methods = ['POST'])
 @cross_origin(headers=['Content-Type'])
 def changePIN():
     req = request.get_json()
-    return 'changePIN()'
+    response = make_response('PIN has been changed')
+    response.mimetype = 'text/plain'
+    return response
 
-@app.route('/devices/<int:dev_id>/certificate', methods = ['POST'])
+@app.route('/devices/PEM', methods = ['POST'])
 @cross_origin(headers=['Content-Type'])
 def getCertificate():
     req = request.get_json()
-    return 'getCertificate()'
+    return json.load(open('PEM.json'))
+    
 
-@app.route('/devices/<int:dev_id>/certificate', methods = ['GET'])
+@app.route('/devices/certificates', methods = ['POST'])
 @cross_origin(headers=['Content-Type'])
 def getCertificateInfo():
     req = request.get_json()
-    return 'getCertificateInfo()'
+    return json.load(open('certificate.json'))
 
-@app.route('/devices/<int:dev_id>/', methods = ['POST'])
+@app.route('/devices/login', methods = ['POST'])
 @cross_origin(headers=['Content-Type'])
 def login():
     req = request.get_json()
-    return 'login()'
+    return json.load(open('login.json'))
 
 if __name__ == '__main__':
     app.run()
