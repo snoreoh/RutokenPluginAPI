@@ -1,125 +1,204 @@
-function authenticate(deviceId, certId, salt){
-    fetch('http://127.0.0.1:5000/devices/CMS\'s', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*', 
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify({
-            'deviceID': deviceId, 
-            'certID': certId,
-            'salt': salt})
-    }).then(response => {
-        if(!response.ok){
-            return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
-        }
-        return response.json();
-    }).then(data => {
-        //Processing data received from the server
-        alert(data['CMS']);
-    }).catch(error => {
-        console.error('Error: ', error);
-    });
+class CryptoPlugin{
+        
+    async enumerateDevices(options){
+        return fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                "operationID": 1,
+                "parameters": [{
+                    'options': options
+                }]
+            })
+        }).then(response => {
+            if(!response.ok){
+                return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
+            }
+            return response.json();
+        }).catch(error => {
+            console.error("Error: ", error)
+        });
+    }
+
+    async enumerateKeys(deviceId, marker){
+        return fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                "operationID": 2,
+                "parameters": [{
+                    'deviceId': deviceId, 
+                    'marker': marker
+                }]
+            })
+        }).then(response => {
+            if(!response.ok){
+                return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
+            }
+            return response.json();
+        }).catch(error => {
+            console.error("Error: ", error)
+        });
+    }
+
+    async enumerateCertificates(deviceId, category){
+        return fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                "operationID": 3,
+                "parameters": [{
+                    'deviceID': deviceId, 
+                    'category': category
+                }]
+            })
+        }).then(response => {
+            if(!response.ok){
+                return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
+            }
+            return response.json();
+        }).catch(error => {
+            console.error("Error: ", error)
+        });
+    }
+
+    async savePin(deviceId){
+        return fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                "operationID": 4,
+                "parameters": [{
+                    'deviceID': deviceId
+                }]
+            })
+        }).then(response => {
+            if(!response.ok){
+                return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
+            }
+            return response.json();
+        }).catch(error => {
+            console.error("Error: ", error)
+        });
+    }
+
+    async removePin(deviceId){
+        return fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                "operationID": 5,
+                "parameters": [{
+                    'deviceID': deviceId
+                }]
+            })
+        }).then(response => {
+            if(!response.ok){
+                return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
+            }
+            return response.json();
+        }).catch(error => {
+            console.error("Error: ", error)
+        });
+    }
+
+    async changePIN(deviceId, authPIN, newPIN, options){
+        return fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "operationID": 6,
+                "parametrs": [{
+                    'deviceID': deviceId,
+                    'authPIN': authPIN,
+                    'newPIN': newPIN,
+                    'options': options
+                }]
+            })
+        }).then(response => {
+            if(!response.ok){
+                return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
+            }
+            return response.text();
+        }).catch(error => {
+            console.error('Error: ', error);
+        });
+    }
+
+    async login(deviceId, pin){
+        return fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                "operationID": 7,
+                "parameters": [{
+                    'deviceID': deviceId, 
+                    'PIN': pin
+                }]
+            })
+        }).then(response => {
+            if(!response.ok){
+                return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
+            }
+            return response.json();
+        }).catch(error => {
+            console.error("Error: ", error)
+        });
+    }
+
+    async logout(){
+        return fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*', 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify({
+                "operationID": 8,
+                "parameters": [{
+                    'deviceID': deviceId, 
+                    'PIN': pin
+                }]
+            })
+        }).then(response => {
+            if(!response.ok){
+                return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
+            }
+            return response.json();
+        }).catch(error => {
+            console.log("Error: ", error)
+        });
+    }
+
 }
 
-function changePIN(deviceId, authPIN, newPIN, options){
-    fetch('http://127.0.0.1:5000/devices/PINs', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*', 
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            'deviceID': deviceId,
-            'authPIN': authPIN,
-            'newPIN': newPIN,
-            'options': options
-        })
-    }).then(response => {
-        if(!response.ok){
-            return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
-        }
-        return response.text();
-    }).then(data =>{
-        alert(data)
-    }).catch(error => {
-        console.error('Error: ', error);
-    });
-}
+// // Test Input
+// _plugin = new CryptoPlugin();
+// _plugin.login(49531827, 12234).then(data => {
+//     alert(data['deviceID'])
+// });
 
-function getCertificate(deviceId, certId){
-    fetch('http://127.0.0.1:5000/devices/PEM', 
-    {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*', 
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify({
-            'deviceID': deviceId, 
-            'certID': certId
-        })
-    }).then(response => {
-        if(!response.ok){
-            return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
-        }
-        return response.json();
-    }).then(data => {
-        alert(data['PEM'])
-    }).catch(error => {
-        console.error('Error: ', error);
-    });
-}
-
-function getCertificateInfo(deviceId, certId, options){
-    fetch('http://127.0.0.1:5000/devices/certificates', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*', 
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify({
-            'deviceID': deviceId, 
-            'certID': certId,
-            'options': options
-        })
-    }).then(response => {
-        if(!response.ok){
-            return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
-        }
-        return response.json();
-    }).then(data => {
-        alert(data['TOKEN_INFO_MODEL'])
-    }).catch(error => {
-        console.error('Error: ', error);
-    });
-}
-
-function login(deviceId, pin){
-    fetch('http://127.0.0.1:5000/devices/login', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*', 
-            'Content-Type': 'application/json' 
-        },
-        body: JSON.stringify({
-            'deviceID': deviceId, 
-            'PIN': pin
-        })
-    }).then(response => {
-        if(!response.ok){
-            return Promise.reject(new Error('Response failed: ' + response.status + '(' + response.statusText + ')'));
-        }
-        return response.json();
-    }).then(data => {
-        alert(data['deviceID'])
-    }).catch(error => {
-        console.error('Error: ', error);
-    });
-}
-
-authenticate(1432123, '222333', '1234567');
-changePIN(1432123, '222333', '1234567', ["123213213", "dsfdfsdf"]);
-getCertificate('dadasd', 'xzxzxzxzzx');
-getCertificateInfo('dadasdasd','xzxzzxzxzx', ['212143', 414214124]);
-login('sasasa', '22412421412');
+// _plugin.enumerateCertificates(49531827, "CERT_CATEGORY_USER, CERT_CATEGORY_CA").then(data => {
+//     alert(data["TOKEN_INFO_MODEL"])
+// })
