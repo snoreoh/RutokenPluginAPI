@@ -194,12 +194,12 @@ class CryptoPlugin{
 }
 
 // // Test Input
-_plugin = new CryptoPlugin();
+// _plugin = new CryptoPlugin();
 
-_plugin.login(49531827, 12234).then(data => {
-    alert(data)
-});
+// _plugin.login(49531827, 12234).then(data => {
+//     alert(data)
+// });
 
-_plugin.enumerateCertificates(49531827, "CERT_CATEGORY_USER, CERT_CATEGORY_CA").then(data => {
-    alert(data["certificates"])
-})
+// _plugin.enumerateCertificates(49531827, "CERT_CATEGORY_USER, CERT_CATEGORY_CA").then(data => {
+//     alert(data["certificates"])
+// })
