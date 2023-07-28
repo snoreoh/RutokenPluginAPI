@@ -7,8 +7,8 @@ It's the remote API developed for Rutoken Plugin
 - [x] To implement the receiving of `data` from server in `.json` 
 - [x] To implement the processing of `received json-data` from server-side
 - [ ] To add interface for proper interaction with API-functions
-- [ ] To wrap functions in class
-- [ ] To implement asynchronous mechanism
+- [x] To wrap functions in class
+- [x] To implement asynchronous mechanism
 
 ### Server-side
 - [x] To make a plug on Flask with constant responses
