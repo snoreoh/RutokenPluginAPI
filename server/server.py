@@ -34,9 +34,7 @@ def response():
         return response
     
     elif req['operationID'] == 7:
-        response = make_response('Successfully')
-        response.mimetype = 'text/plain'
-        return response
+        return json.load(open("login.json"))
     
     elif req['operationID'] == 8:
         response = make_response('Session is over')
