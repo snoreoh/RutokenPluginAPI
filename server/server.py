@@ -1,6 +1,7 @@
 from flask import Flask, request, make_response
 from flask_cors import cross_origin
 import json
+import random as rand
 
 app = Flask(__name__)
 
@@ -8,40 +9,13 @@ app = Flask(__name__)
 @cross_origin(headers=['Content-Type'])
 def response():
     req = request.get_json()
-
-    if req['operationID'] == 1:
-        return json.load(open("devices.json"))
-    
-    elif req['operationID'] == 2:
-        return json.load(open("keys.json"))
-    
-    elif req['operationID'] == 3:
-        return json.load(open("certificates.json"))
-    
-    elif req['operationID'] == 4:
-        response = make_response('PIN has been SAVED')
-        response.mimetype = 'text/plain'
-        return response
-    
-    elif req['operationID'] == 5:
-        response = make_response('PIN has been REMOVED')
-        response.mimetype = 'text/plain'
-        return response
-    
-    elif req['operationID'] == 6:
-        response = make_response('PIN has been CHANGED')
-        response.mimetype = 'text/plain'
-        return response
-    
-    elif req['operationID'] == 7:
-        response = make_response('Successfully')
-        response.mimetype = 'text/plain'
-        return response
-    
-    elif req['operationID'] == 8:
-        response = make_response('Session is over')
-        response.mimetype = 'text/plain'
-        return response
+    try:
+        f = open(f"{req['operationID']}.json")
+        return json.load(f)
+    except:
+        return json.dumps({
+            "message": f"{rand.randint(1, 20)}"
+        })  
 
 if __name__ == '__main__':
     app.run()

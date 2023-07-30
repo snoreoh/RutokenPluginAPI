@@ -1,0 +1,17 @@
+{
+    "ENUMERATE_DEVICES_EVENTS": {
+        "connected": [
+            852752315, 
+            951753456
+        ],
+        "disconnected":[
+            654412785
+        ]
+    },
+
+    "ENUMERATE_DEVICES_LIST": [
+        852752315, 
+        951753456,
+        654412785
+    ]
+}
