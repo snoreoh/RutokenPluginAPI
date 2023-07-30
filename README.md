@@ -2,6 +2,9 @@
 It's the remote API developed for Rutoken Plugin
 
 # TODO List
+### Whole project
+- [ ] Create working fork for real plugin
+
 ### Client-side (onload functions)
 - [x] To implement the conversion `input data` to `.json` format
 - [x] To implement the receiving of `data` from server in `.json` 
