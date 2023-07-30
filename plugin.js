@@ -98,13 +98,13 @@ class CryptoPlugin{
 }
 
 // Test Input
-_plugin = new CryptoPlugin();
+// _plugin = new CryptoPlugin();
 
-_plugin.enumerateDevices("ENUMERATE_DEVICES_EVENTS").then(data =>{
-    alert(data["connected"])
-}, function(error){
-    alert(error.message)
-});
+// _plugin.enumerateDevices("ENUMERATE_DEVICES_EVENTS").then(data =>{
+//     alert(data["connected"])
+// }, function(error){
+//     alert(error.message)
+// });
 // _plugin.enumerateCertificates(49531827, ["CERT_CATEGORY_USER", "CERT_CATEGORY_CA"]).then(data => {
 //     alert(data)
 // }, function(error){
