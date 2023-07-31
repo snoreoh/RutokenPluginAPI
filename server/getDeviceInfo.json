@@ -1,3 +1,22 @@
-{
-    
-}
+[
+    {
+        "deviceId": 852752315,
+        "info":{
+            "TOKEN_INFO_MODEL": "TOKEN_TYPE_RUTOKEN_WEB"
+        }
+    },
+
+    {
+        "deviceId": 951753456,
+        "info":{
+            "TOKEN_INFO_MODEL": "TOKEN_TYPE_RUTOKEN_WEB"
+        }
+    },
+
+    {
+        "deviceId": 654412785,
+        "info":{
+            "TOKEN_INFO_MODEL": "TOKEN_TYPE_RUTOKEN_WEB"
+        }
+    }
+]

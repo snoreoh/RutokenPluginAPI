@@ -1,13 +1,73 @@
 [
     {
+        "deviceId": 852752315,
+        "certificates":[
+            {
+                "certificateId": "reer6f56a65a5c6awfd",
+                "category": "CERT_CATEGORY_USER",
+                "handle": 1
+            },
 
+            {
+                "certificate": "czxca56sd5w6q5e56qw",
+                "category":"CERT_CATEGORY_CA",
+                "handle": 2
+            },
+
+            {
+                "certificate": "g4afd4h5s4h65fdh5df",
+                "category": "CERT_CATEGORY_USER",
+                "handle": 3
+            }
+            
+        ]
+    },
+    
+    {
+        "deviceId": 951753456,
+        "certificates":[
+            {
+                "certificateId": "reer6f56a65a5c6awfd",
+                "category": "CERT_CATEGORY_USER",
+                "handle": 4
+            },
+
+            {
+                "certificateId": "czxca56sd5w6q5e56qw",
+                "category":"CERT_CATEGORY_CA",
+                "handle": 5
+            },
+
+            {
+                "certificateId": "g4afd4h5s4h65fdh5df",
+                "category": "CERT_CATEGORY_USER",
+                "handle": 6
+            }
+            
+        ]
     },
 
     {
+        "deviceId": 654412785,
+        "certificates":[
+            {
+                "certificateId": "reer6f56a65a5c6awfd",
+                "category": "CERT_CATEGORY_USER",
+                "handle": 7
+            },
 
-    },
+            {
+                "certificateId": "czxca56sd5w6q5e56qw",
+                "categoryId":"CERT_CATEGORY_CA",
+                "handle": 8
+            },
 
-    {
-        
+            {
+                "certificateId": "g4afd4h5s4h65fdh5df",
+                "category": "CERT_CATEGORY_USER",
+                "handle": 9
+            }
+            
+        ]
     }
 ]
