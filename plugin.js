@@ -37,7 +37,7 @@ class CryptoPlugin{
     }
 
     async getDeviceInfo(deviceId, option = 'TOKEN_INFO_MODEL'){
-        await this.request( JSON.stringify({
+        return await this.request( JSON.stringify({
             "operationID": "getDeviceInfo",
             "parameters": {
                 'deviceId': deviceId,
