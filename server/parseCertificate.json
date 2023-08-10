@@ -5,19 +5,19 @@
             {
                 "certificateId": "reer6f56a65a5c6awfd",
                 "category": "CERT_CATEGORY_USER",
-                "handle": 1
+                "handle": "a"
             },
 
             {
-                "certificate": "czxca56sd5w6q5e56qw",
+                "certificateId": "czxca56sd5w6q5e56qw",
                 "category":"CERT_CATEGORY_CA",
-                "handle": 2
+                "handle": "b"
             },
 
             {
-                "certificate": "g4afd4h5s4h65fdh5df",
+                "certificateId": "g4afd4h5s4h65fdh5df",
                 "category": "CERT_CATEGORY_USER",
-                "handle": 3
+                "handle": "c"
             }
             
         ]
@@ -29,19 +29,19 @@
             {
                 "certificateId": "reer6f56a65a5c6awfd",
                 "category": "CERT_CATEGORY_USER",
-                "handle": 4
+                "handle": "d"
             },
 
             {
                 "certificateId": "czxca56sd5w6q5e56qw",
                 "category":"CERT_CATEGORY_CA",
-                "handle": 5
+                "handle": "e"
             },
 
             {
                 "certificateId": "g4afd4h5s4h65fdh5df",
                 "category": "CERT_CATEGORY_USER",
-                "handle": 6
+                "handle": "f"
             }
             
         ]
@@ -53,19 +53,19 @@
             {
                 "certificateId": "reer6f56a65a5c6awfd",
                 "category": "CERT_CATEGORY_USER",
-                "handle": 7
+                "handle": "g"
             },
 
             {
                 "certificateId": "czxca56sd5w6q5e56qw",
                 "categoryId":"CERT_CATEGORY_CA",
-                "handle": 8
+                "handle": "h"
             },
 
             {
                 "certificateId": "g4afd4h5s4h65fdh5df",
                 "category": "CERT_CATEGORY_USER",
-                "handle": 9
+                "handle": "m"
             }
             
         ]

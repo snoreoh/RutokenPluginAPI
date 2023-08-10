@@ -47,8 +47,6 @@ class CryptoPlugin{
                 return Promise.reject(new Error('6'));
             }
             return response.json();
-        }).catch(error => {
-            console.error("Error: ", error)
         }).then(respData => {
             if ('message' in respData){
                 return Promise.reject(new Error(respData['message']))    
@@ -57,36 +55,3 @@ class CryptoPlugin{
         })
     }
 }
-
-// Test Input
-_plugin = new CryptoPlugin();
-// _plugin.enumerateDevices("ENUMERATE_DEVICES_EVENTS").then(data =>{
-//     alert(data["connected"])
-// }, function(error){
-//     alert(error.message)
-// });
-// _plugin.enumerateKeys(852752315).then(data =>{
-//     alert(data)
-// }, function(error){
-//     alert(error.message)
-// });
-// _plugin.enumerateCertificates(852752315).then(data => {
-//     alert(data)
-// }, function(error){
-//     alert(error.message)
-// });
-// _plugin.getDeviceInfo(852752315).then(data => {
-//     alert(data)
-// }, function(error){
-//     alert(error.message)
-// });
-// _plugin.getKeyLabel(852752315, "1633789ccf142cc7").then(data => {
-//     alert(data)
-// }, function(error){
-//     alert(error.message)
-// });
-// _plugin.parseCertificate(852752315, "reer6f56a65a5c6awfd").then(data => {
-//     alert(data[0])
-// }, function(error){
-//     alert(error.message)
-// });

@@ -1,5 +1,5 @@
 from flask import Flask, request
-from flask_cors import cross_origin
+from flask_cors import CORS, cross_origin
 import json
 
 
@@ -38,7 +38,8 @@ class plugin:
         return self.response(self.jsonData[options])
 
     
-    def enumerateKeys(self, deviceId, marker = ''):
+    def enumerateKeys(self, deviceId, marker):
+        if marker == None: marker = ''
         for device in self.jsonData:
             if device['deviceId'] == deviceId:
                 keys = []
@@ -56,7 +57,8 @@ class plugin:
 
         return self.errorResponse('DEVICE_NOT_FOUND')
 
-    def enumerateCertificates(self, deviceId, category = 'CERT_CATEGORY_UNSPEC'):
+    def enumerateCertificates(self, deviceId, category):
+        if category == None: category = 'CERT_CATEGORY_UNSPEC'
         if category not in ["CERT_CATEGORY_UNSPEC", "CERT_CATEGORY_USER", "CERT_CATEGORY_CA", "CERT_CATEGORY_OTHER"]:
             return self.errorResponse('CERTIFICATE_CATEGORY_BAD')
         
@@ -79,6 +81,7 @@ class plugin:
         return self.errorResponse('DEVICE_NOT_FOUND')
 
     def getDeviceInfo(self, deviceId, option = 'TOKEN_INFO_MODEL'):
+        if option == None: option = 'TOKEN_INFO_MODEL'
         for device in self.jsonData:
             if device['deviceId'] == deviceId:
                     return self.response(device['info'][option])
@@ -115,9 +118,11 @@ class plugin:
 
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/', methods = ['POST'])
-@cross_origin(headers=['Content-Type'])
+@app.route('/', methods = ['POST', 'OPTIONS'])
+@cross_origin(origin='*', headers=['Content-Type'])
 def response():
 
     req = request.get_json()
